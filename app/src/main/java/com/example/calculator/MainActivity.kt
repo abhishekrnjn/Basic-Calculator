@@ -36,10 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         if(isresult && requiredReset){
             number =""
-            editText?.setText("")
-            isresult =false
-            requiredReset=true
+            isresult=false
+
         }
+        requiredReset = true;
 
         when(view.id){
 
@@ -103,7 +103,6 @@ class MainActivity : AppCompatActivity() {
             R.id.button_plus ->{
                 lastoperation()
                 if(number.isNullOrBlank()){
-                    isdot =false;
                     return
                 }
                 else {
@@ -117,7 +116,6 @@ class MainActivity : AppCompatActivity() {
             R.id.button_multiply ->{
                 lastoperation()
                 if(number.isNullOrBlank()){
-                    isdot =false;
                     return
                 }
                 else {
@@ -131,13 +129,13 @@ class MainActivity : AppCompatActivity() {
             R.id.button_minus->{
                 lastoperation()
                 if(number.isNullOrBlank()){
-                    isdot =false;
                     return
                 }
                 else {
                     numberOne = number.toFloat()
                     editText?.setText("")
                     isMinus = true;
+                    isdot=false
                     number = ""
                 }
 
@@ -191,6 +189,7 @@ class MainActivity : AppCompatActivity() {
 
     }
      fun lastoperation(){
+         isdot=false
          if(number.isNullOrBlank())
              return
 
